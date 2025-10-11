@@ -16,7 +16,7 @@ void main() {
       expect(find.text('Simple Dive Logger'), findsOneWidget);
     });
 
-    testWidgets('should display all four navigation buttons',
+    testWidgets('should display all three navigation buttons',
         (WidgetTester tester) async {
       // Arrange & Act
       await tester.pumpWidget(
@@ -28,7 +28,6 @@ void main() {
       // Assert
       expect(find.text('Begin Dive'), findsOneWidget);
       expect(find.text('End Dive'), findsOneWidget);
-      expect(find.text('Dive Log'), findsOneWidget);
       expect(find.text('Edit Dive'), findsOneWidget);
     });
 
@@ -76,28 +75,6 @@ void main() {
       expect(find.text('End Dive Screen'), findsOneWidget);
     });
 
-    testWidgets('Dive Log button should navigate to DiveLogScreen',
-        (WidgetTester tester) async {
-      // Arrange
-      await tester.pumpWidget(
-        MaterialApp(
-          home: const HomeScreen(),
-          routes: {
-            '/dive-log': (context) => const Scaffold(
-                  body: Center(child: Text('Dive Log Screen')),
-                ),
-          },
-        ),
-      );
-
-      // Act
-      await tester.tap(find.text('Dive Log'));
-      await tester.pumpAndSettle();
-
-      // Assert
-      expect(find.text('Dive Log Screen'), findsOneWidget);
-    });
-
     testWidgets('Edit Dive button should navigate to EditDiveScreen',
         (WidgetTester tester) async {
       // Arrange
@@ -138,10 +115,6 @@ void main() {
         of: find.text('End Dive'),
         matching: find.byType(ElevatedButton),
       );
-      final diveLogButton = find.ancestor(
-        of: find.text('Dive Log'),
-        matching: find.byType(ElevatedButton),
-      );
       final editDiveButton = find.ancestor(
         of: find.text('Edit Dive'),
         matching: find.byType(ElevatedButton),
@@ -149,7 +122,6 @@ void main() {
 
       expect(beginDiveButton, findsOneWidget);
       expect(endDiveButton, findsOneWidget);
-      expect(diveLogButton, findsOneWidget);
       expect(editDiveButton, findsOneWidget);
     });
   });

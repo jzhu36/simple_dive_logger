@@ -13,10 +13,9 @@ void main() {
     // Verify that the home screen is displayed with the app title
     expect(find.text('Simple Dive Logger'), findsOneWidget);
 
-    // Verify that all four main buttons are present
+    // Verify that all three main buttons are present
     expect(find.text('Begin Dive'), findsOneWidget);
     expect(find.text('End Dive'), findsOneWidget);
-    expect(find.text('Dive Log'), findsOneWidget);
     expect(find.text('Edit Dive'), findsOneWidget);
   });
 }

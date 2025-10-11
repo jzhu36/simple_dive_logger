@@ -56,21 +56,6 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/dive-log');
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  backgroundColor: Colors.blue[600],
-                  foregroundColor: Colors.white,
-                ),
-                child: const Text(
-                  'Dive Log',
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
                   Navigator.pushNamed(context, '/edit-dive');
                 },
                 style: ElevatedButton.styleFrom(
